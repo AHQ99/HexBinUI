@@ -1,0 +1,67 @@
+.wrapper{
+    display: flex;
+    flex-wrap: wrap;
+}
+.wrapper .memoryInputs {
+
+    text-align: center;
+    width: 25%;
+    height: 1100px;
+    margin: auto;
+    padding-top: 20px;
+    background: rgb(3, 252, 165);
+}
+#instrcutcins{
+    background: rgb(5, 78, 84);
+
+
+    display: flex;
+    flex-direction: column;
+    width: 75%;
+}
+#instrcutions table{
+    background-color: cadetblue;
+}
+#TracingTables{
+    display: flex;
+    flex-direction: column;
+    width: 75%;
+    margin: auto;
+}
+
+input {
+    margin: 8px;
+    width: 50%;
+    height: 20px;
+}
+button[name="See-Memory"] {
+    margin-top: 15px; 
+}
+a[href="memory.html"] {
+    color: black;
+    text-decoration: none;
+}
+button {
+    width: 50%;
+    height: 30px;
+    background-color:#34e4cc;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+table {
+    margin: auto;
+    margin-top: 20px;
+    border: solid 3px yellow;
+    border-radius: 10px;
+    width: 95%;
+}
+
+.wrapper .Tracing {
+    border: solid 3px #b7245c;
+}
+
+.Tracing,.Initial, .T0, .T1,.T2,.T3,.T4,.T5,.T6,.T7, .T8{
+    display: none;
+}

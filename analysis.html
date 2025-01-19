@@ -1,0 +1,1238 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Document</title>
+    <link rel="stylesheet" href="AnaStyle.css">
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="memoryInputs">
+            <h1>Analayzing hex</h1>
+            <form name="instructions">
+
+                <input type="text" id="firstInstruction" name="firstInstruction" placeholder="first instrutction">
+                <br>
+                <input type="text" id="secondInstruction" name="secondInstruction" placeholder="Second instrutction">
+                <br>
+                <input type="text" id="thirdInstruction" name="thirdInstruction" placeholder="third instrutction">
+                <br>
+                <input type="text" id="forthInstruction" name="forthInstruction" placeholder="forth instrutction">
+                <br>
+                <input type="text" placeholder="Memory[104]"> <br> <input type="text" placeholder="Memory[105]"> <br> <input type="text" placeholder="Memory[106]"> <br>
+                <input type="text" placeholder="Memory[107]"> <br> <input type="text" placeholder="Memory[108]"> <br> <input type="text" placeholder="Memory[109]"> <br>
+                <input type="text" placeholder="Memory[10A]"> <br> <input type="text" placeholder="Memory[10B]"> <br> <input type="text" placeholder="Memory[10C]"> <br>
+                <input type="text" placeholder="Memory[10D]"> <br> <input type="text" placeholder="Memory[10E]"> <br> <input type="text" placeholder="Memory[10F]"> <br>
+                <input type="text" placeholder="Memory[110]"> <br> <input type="text" placeholder="Memory[111]"> <br> <input type="text" placeholder="Memory[112]"> <br>
+                <input type="text" placeholder="Memory[113]"> <br> <input type="text" placeholder="Memory[114]"> <br> <button type="button" name="convert">convert</button>
+                <p><strong>Plesese enter the halt instruction</strong><br>
+                    After clicking the button <strong>Press 2 for tracing</strong></p>
+            </form>
+        </div>
+        <div id="instrcutcins">
+            <table border="2px" cellspacing="8px" cellpadding="6px" >
+                <thead bgcolor="#edf6f9" style="font-size: large;">
+                    <tr>
+                        <th class="orginalInstruction" colspan="3">Instruction is</th>
+                        <th class="instruction" colspan="3">Instruction</th></tr>
+
+                    <tr><th>Instrutction in binary</th>
+                        <th>I bit</th> <th>Opcode</th> <th>address</th>
+                        <th>Instruction Category</th> <th>Addressing mode</th> </tr>
+                </thead>
+                <tbody align="center" bgcolor="#edf6f9">
+                    <tr class="analyzedRows"><td class="BinrayInstruction"></td> <td class="iBit"></td> <td class="opcode"></td>
+                        <td class="address"></td> <td class="InstructionCategory"></td> <td class="Addressingmode"></td> </tr>
+                </tbody>
+            </table>
+
+            <table border="2px" cellspacing="8px" cellpadding="6px">
+                <thead bgcolor="#edf6f9" style="font-size: large;">
+                    <tr>
+                        <th class="orginalInstruction" colspan="3">Instruction is</th>
+                        <th class="instruction" colspan="3">Instruction</th>
+                    </tr>
+                    <tr> <th>Instrutction in binary</th> <th>I bit</th> <th>Opcode</th>
+                         <th>address</th> <th>Instruction Category</th> <th>Addressing mode</th> </tr>
+                </thead>
+                <tbody align="center" bgcolor="#edf6f9">
+                    <tr class="analyzedRows">
+                        <td class="BinrayInstruction"></td> <td class="iBit"></td> <td class="opcode"></td>
+                        <td class="address"></td> <td class="InstructionCategory"></td> <td class="Addressingmode"></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <table border="2px" cellspacing="8px" cellpadding="6px">
+                <thead bgcolor="#edf6f9" style="font-size: large;">
+                    <tr>
+                        <th class="orginalInstruction" colspan="3">Instruction is</th>
+                        <th class="instruction" colspan="3">Instruction</th>
+                    </tr>
+                    <tr>
+                        <th>Instrutction in binary</th> <th>I bit</th> <th>Opcode</th>
+                        <th>address</th> <th>Instruction Category</th> <th>Addressing mode</th>
+                    </tr>
+                </thead>
+                <tbody align="center" bgcolor="#edf6f9">
+                    <tr class="analyzedRows">
+                        <td class="BinrayInstruction"></td> <td class="iBit"></td> <td class="opcode"></td> 
+                        <td class="address"></td> <td class="InstructionCategory"></td> <td class="Addressingmode"></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <table border="2px" cellspacing="8px" cellpadding="6px">
+                <thead bgcolor="#edf6f9" style="font-size: large;">
+                    <tr>
+                        <th class="orginalInstruction" colspan="3">Instruction is</th>
+                        <th class="instruction" colspan="3">Instruction</th>
+                    </tr>
+                    <tr>
+                        <th>Instrutction in binary</th>
+                        <th>I bit</th>
+                        <th>Opcode</th>
+                        <th>address</th>
+                        <th>Instruction Category</th>
+                        <th>Addressing mode</th>
+                    </tr>
+                </thead>
+                <tbody align="center" bgcolor="#edf6f9">
+                    <tr class="analyzedRows">
+                        <td class="BinrayInstruction"></td>
+                        <td class="iBit"></td>
+                        <td class="opcode"></td>
+                        <td class="address"></td>
+                        <td class="InstructionCategory"></td>
+                        <td class="Addressingmode"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div id="TracingTables">
+        <table border="1px" cellspacing='5px' class="Tracing" id="Tracing1">
+            <thead bgcolor="#edf6f9">
+                <tr>
+                    <th colspan="9">Tracing</th>
+                </tr>
+                <tr>
+                    <th>Time cycle</th>
+                    <th>PC</th>
+                    <th>AR</th>
+                    <th>DR</th>
+                    <th>AC</th>
+                    <th>IR</th>
+                    <th>M[AR]</th>
+                    <th>E</th>
+                    <th>SC</th>
+                </tr>
+            </thead>
+            <tbody align="center">
+                <tr>
+                    <td class="Initial"><strong>Initial</strong></td>
+                    <td class="Initial"></td><td class="Initial"></td><td class="Initial"></td><td class="Initial"></td>
+                    <td class="Initial"></td><td class="Initial"></td><td class="Initial"></td><td class="Initial"></td>
+                </tr>
+                <tr>
+                    <td class="T0"><strong>T0</strong></td>
+                    <td class="T0"></td><td class="T0"></td><td class="T0"></td><td class="T0">
+                    </td><td class="T0"></td><td class="T0"></td><td class="T0"></td><td class="T0"></td>
+                </tr>
+
+                <tr><td class="T1">T1</td><td class="T1"></td><td class="T1"></td>
+                    <td class="T1"></td><td class="T1"></td><td class="T1"></td>
+                    <td class="T1"></td><td class="T1"></td><td class="T1"></td></tr>
+
+                <tr><td class="T2">T2</td><td class="T2"></td><td class="T2"></td>
+                    <td class="T2"></td><td class="T2"></td><td class="T2"></td>
+                    <td class="T2"></td><td class="T2"></td><td class="T2"></td></tr>
+
+                <tr><td class="T3">T3</td><td class="T3"></td><td class="T3"></td>
+                    <td class="T3"></td><td class="T3"></td><td class="T3"></td>
+                    <td class="T3"></td><td class="T3"></td><td class="T3"></td></tr>
+
+                <tr><td class="T4">T4</td><td class="T4"></td><td class="T4"></td>
+                    <td class="T4"></td><td class="T4"></td><td class="T4"></td>
+                    <td class="T4"></td><td class="T4"></td><td class="T4"></td></tr>
+
+                <tr><td class="T5">T5</td><td class="T5"></td><td class="T5"></td>
+                    <td class="T5"></td><td class="T5"></td><td class="T5"></td>
+                    <td class="T5"></td><td class="T5"></td><td class="T5"></td></tr>
+
+                <tr><td class="T6">T6</td><td class="T6"></td><td class="T6"></td>
+                    <td class="T6"></td><td class="T6"></td><td class="T6"></td>
+                    <td class="T6"></td><td class="T6"></td><td class="T6"></td></tr>
+            </tbody>
+        </table>
+        <table border="1px" cellspacing='5px' class="Tracing" id="Tracing2">
+            <thead bgcolor="#edf6f9">
+                <tr>
+                    <th colspan="9">Tracing</th>
+                </tr>
+                <tr>
+                    <th>Time cycle</th>
+                    <th>PC</th><th>AR</th>
+                    <th>DR</th><th>AC</th><th>IR</th><th>M[AR]</th><th>E</th><th>SC</th></tr>
+            </thead>
+            <tbody align="center">
+
+                <tr><td class="Initial"><strong>Initial</strong></td><td class="Initial"></td>
+                    <td class="Initial"></td><td class="Initial"></td><td class="Initial"></td>
+                    <td class="Initial"></td><td class="Initial"></td><td class="Initial"></td>
+                    <td class="Initial"></td></tr>
+
+                <tr><td class="T0"><strong>T0</strong></td><td class="T0"></td><td class="T0"></td>
+                    <td class="T0"></td><td class="T0"></td><td class="T0"></td><td class="T0"></td>
+                    <td class="T0"></td><td class="T0"></td></tr>
+
+                <tr><td class="T1">T1</td><td class="T1"></td><td class="T1"></td>
+                    <td class="T1"></td><td class="T1"></td><td class="T1"></td>
+                    <td class="T1"></td><td class="T1"></td><td class="T1"></td></tr>
+
+                <tr><td class="T2">T2</td><td class="T2"></td><td class="T2"></td>
+                    <td class="T2"></td><td class="T2"></td><td class="T2"></td>
+                    <td class="T2"></td><td class="T2"></td><td class="T2"></td></tr>
+
+                <tr><td class="T3">T3</td><td class="T3"></td><td class="T3"></td>
+                    <td class="T3"></td><td class="T3"></td><td class="T3"></td>
+                    <td class="T3"></td><td class="T3"></td><td class="T3"></td></tr>
+
+                <tr><td class="T4">T4</td><td class="T4"></td><td class="T4"></td>
+                    <td class="T4"></td><td class="T4"></td><td class="T4"></td>
+                    <td class="T4"></td><td class="T4"></td><td class="T4"></td> </tr>
+
+                <tr><td class="T5">T5</td><td class="T5"></td><td class="T5"></td>
+                    <td class="T5"></td><td class="T5"></td><td class="T5"></td>
+                    <td class="T5"></td><td class="T5"></td><td class="T5"></td></tr>
+
+                <tr><td class="T6">T6</td><td class="T6"></td><td class="T6"></td>
+                    <td class="T6"></td><td class="T6"></td><td class="T6"></td>
+                    <td class="T6"></td><td class="T6"></td><td class="T6"></td></tr>
+            </tbody>
+        </table>
+        <table border="1px" cellspacing='5px' class="Tracing" id="Tracing3">
+            <thead bgcolor="#edf6f9">
+
+                <tr><th colspan="9">Tracing</th></tr>
+                
+                <tr><th>Time cycle</th>
+                    <th>PC</th><th>AR</th><th>DR</th><th>AC</th>
+                    <th>IR</th><th>M[AR]</th><th>E</th><th>SC</th></tr>
+            </thead>
+            <tbody align="center">
+
+                <tr><td class="Initial"><strong>Initial</strong></td><td class="Initial"></td>
+                    <td class="Initial"></td><td class="Initial"></td><td class="Initial"></td>
+                    <td class="Initial"></td><td class="Initial"></td><td class="Initial"></td>
+                    <td class="Initial"></td></tr>
+
+                <tr><td class="T0"><strong>T0</strong></td><td class="T0"></td><td class="T0"></td>
+                    <td class="T0"></td><td class="T0"></td><td class="T0"></td><td class="T0"></td>
+                    <td class="T0"></td><td class="T0"></td></tr>
+
+                <tr><td class="T1">T1</td><td class="T1"></td><td class="T1"></td>
+                    <td class="T1"></td><td class="T1"></td><td class="T1"></td>
+                    <td class="T1"></td><td class="T1"></td><td class="T1"></td> </tr>
+
+
+                <tr><td class="T2">T2</td><td class="T2"></td><td class="T2"></td>
+                    <td class="T2"></td><td class="T2"></td><td class="T2"></td>
+                    <td class="T2"></td><td class="T2"></td><td class="T2"></td></tr>
+
+                <tr><td class="T3">T3</td><td class="T3"></td><td class="T3"></td>
+                    <td class="T3"></td><td class="T3"></td><td class="T3"></td>
+                    <td class="T3"></td><td class="T3"></td><td class="T3"></td></tr>
+
+                <tr><td class="T4">T4</td><td class="T4"></td><td class="T4"></td>
+                    <td class="T4"></td><td class="T4"></td><td class="T4"></td>
+                    <td class="T4"></td><td class="T4"></td><td class="T4"></td></tr>
+
+                <tr><td class="T5">T5</td><td class="T5"></td><td class="T5"></td>
+                    <td class="T5"></td><td class="T5"></td><td class="T5"></td>
+                    <td class="T5"></td><td class="T5"></td><td class="T5"></td></tr>
+
+                <tr><td class="T6">T6</td><td class="T6"></td><td class="T6"></td>
+                    <td class="T6"></td> <td class="T6"></td><td class="T6"></td>
+                    <td class="T6"></td><td class="T6"></td><td class="T6"></td></tr>
+            </tbody>
+        </table>
+        <table border="1px" cellspacing='5px' class="Tracing" id="Tracing4">
+            <thead bgcolor="#edf6f9">
+                <tr>
+                    <th colspan="9">Tracing</th>
+                </tr>
+                <tr>
+                    <th>Time cycle</th>
+                    <th>PC</th><th>AR</th><th>DR</th><th>AC</th>
+                    <th>IR</th><th>M[AR]</th><th>E</th><th>SC</th> </tr>
+            </thead>
+            <tbody align="center">
+
+                <tr><td class="Initial"><strong>Initial</strong></td><td class="Initial"></td>
+                    <td class="Initial"></td><td class="Initial"></td><td class="Initial"></td>
+                    <td class="Initial"></td><td class="Initial"></td><td class="Initial"></td>
+                    <td class="Initial"></td></tr>
+
+                <tr><td class="T0"><strong>T0</strong></td><td class="T0"></td><td class="T0"></td>
+                    <td class="T0"></td><td class="T0"></td><td class="T0"></td><td class="T0"></td>
+                    <td class="T0"></td><td class="T0"></td> </tr>
+
+                <tr><td class="T1">T1</td><td class="T1"></td><td class="T1"></td>
+                    <td class="T1"></td><td class="T1"></td><td class="T1"></td>
+                    <td class="T1"></td><td class="T1"></td><td class="T1"></td> </tr>
+
+                <tr><td class="T2">T2</td><td class="T2"></td><td class="T2"></td>
+                    <td class="T2"></td><td class="T2"></td><td class="T2"></td>
+                    <td class="T2"></td><td class="T2"></td><td class="T2"></td></tr>
+
+                <tr><td class="T3">T3</td><td class="T3"></td><td class="T3"></td>
+                    <td class="T3"></td><td class="T3"></td><td class="T3"></td>
+                    <td class="T3"></td><td class="T3"></td><td class="T3"></td></tr>
+
+                <tr><td class="T4">T4</td><td class="T4"></td><td class="T4"></td>
+                    <td class="T4"></td><td class="T4"></td><td class="T4"></td>
+                    <td class="T4"></td><td class="T4"></td><td class="T4"></td></tr>
+
+                <tr><td class="T5">T5</td><td class="T5"></td><td class="T5"></td>
+                    <td class="T5"></td><td class="T5"></td><td class="T5"></td>
+                    <td class="T5"></td><td class="T5"></td><td class="T5"></td></tr>
+
+                <tr><td class="T6">T6</td><td class="T6"></td><td class="T6"></td>
+                    <td class="T6"></td><td class="T6"></td><td class="T6"></td>
+                    <td class="T6"></td><td class="T6"></td><td class="T6"></td></tr>
+            </tbody>
+        </table>
+        <table border="1px" cellspacing='5px' class="Tracing" id="Tracing5">
+            <thead bgcolor="#edf6f9">
+
+                <tr><th colspan="9">Tracing</th></tr>
+
+                <tr><th>Time cycle</th>
+                    <th>PC</th><th>AR</th><th>DR</th><th>AC</th>
+                    <th>IR</th><th>M[AR]</th><th>E</th><th>SC</th> </tr>
+            </thead>
+            <tbody align="center">
+
+                <tr><td class="Initial"><strong>Initial</strong></td>
+                    <td class="Initial"></td><td class="Initial"></td>
+                    <td class="Initial"></td><td class="Initial"></td>
+                    <td class="Initial"></td><td class="Initial"></td>
+                    <td class="Initial"></td><td class="Initial"></td></tr>
+                
+                <tr><td class="T0"><strong>T0</strong></td><td class="T0"></td><td class="T0"></td>
+                    <td class="T0"></td><td class="T0"></td><td class="T0"></td><td class="T0"></td>
+                    <td class="T0"></td><td class="T0"></td></tr>
+
+                <tr><td class="T1">T1</td><td class="T1"></td><td class="T1"></td>
+                    <td class="T1"></td><td class="T1"></td><td class="T1"></td>
+                    <td class="T1"></td><td class="T1"></td><td class="T1"></td></tr>
+
+                <tr><td class="T2">T2</td><td class="T2"></td><td class="T2"></td>
+                    <td class="T2"></td><td class="T2"></td><td class="T2"></td>
+                    <td class="T2"></td><td class="T2"></td><td class="T2"></td></tr>
+               
+                    <tr><td class="T3">T3</td> <td class="T3"></td><td class="T3"></td>
+                    <td class="T3"></td><td class="T3"></td><td class="T3"></td>
+                    <td class="T3"></td><td class="T3"></td><td class="T3"></td></tr>
+                
+                    <tr><td class="T4">T4</td><td class="T4"></td><td class="T4"></td>
+                    <td class="T4"></td><td class="T4"></td><td class="T4"></td>
+                    <td class="T4"></td><td class="T4"></td><td class="T4"></td></tr>
+                
+                    <tr><td class="T5">T5</td><td class="T5"></td><td class="T5"></td>
+                    <td class="T5"></td><td class="T5"></td><td class="T5"></td>
+                    <td class="T5"></td><td class="T5"></td><td class="T5"></td></tr>
+               
+                <tr><td class="T6">T6</td><td class="T6"></td><td class="T6"></td>
+                    <td class="T6"></td><td class="T6"></td><td class="T6"></td>
+                    <td class="T6"></td><td class="T6"></td><td class="T6"></td></tr>
+            </tbody>
+        </table>
+        <table border="1px" cellspacing='5px' class="Tracing" id="Tracing6">
+            <thead bgcolor="#edf6f9">
+
+                <tr><th colspan="9">Tracing</th></tr>
+                
+                <tr><th>Time cycle</th>
+                    <th>PC</th><th>AR</th><th>DR</th><th>AC</th>
+                    <th>IR</th><th>M[AR]</th><th>E</th><th>SC</th></tr>
+            </thead>
+            <tbody align="center">
+
+                <tr><td class="Initial"><strong>Initial</strong></td><td class="Initial"></td><td class="Initial"></td>
+                    <td class="Initial"></td><td class="Initial"></td><td class="Initial"></td>
+                    <td class="Initial"></td><td class="Initial"></td><td class="Initial"></td></tr>
+
+                <tr><td class="T0"><strong>T0</strong></td><td class="T0"></td><td class="T0"></td>
+                    <td class="T0"></td><td class="T0"></td><td class="T0"></td>
+                    <td class="T0"></td><td class="T0"></td><td class="T0"></td></tr>
+
+                <tr><td class="T1">T1</td><td class="T1"></td><td class="T1"></td>
+                    <td class="T1"></td><td class="T1"></td><td class="T1"></td>
+                    <td class="T1"></td><td class="T1"></td><td class="T1"></td></tr>
+
+                <tr><td class="T2">T2</td><td class="T2"></td><td class="T2"></td>
+                    <td class="T2"></td><td class="T2"></td><td class="T2"></td>
+                    <td class="T2"></td><td class="T2"></td><td class="T2"></td></tr>
+                
+                    <tr><td class="T3">T3</td><td class="T3"></td><td class="T3"></td>
+                    <td class="T3"></td><td class="T3"></td><td class="T3"></td>
+                    <td class="T3"></td><td class="T3"></td><td class="T3"></td>
+                </tr>
+                <tr>
+                    <td class="T4">T4</td><td class="T4"></td><td class="T4"></td>
+                    <td class="T4"></td><td class="T4"></td><td class="T4"></td>
+                    <td class="T4"></td><td class="T4"></td><td class="T4"></td></tr>
+                
+                    <tr><td class="T5">T5</td><td class="T5"></td><td class="T5"></td>
+                    <td class="T5"></td><td class="T5"></td><td class="T5"></td>
+                    <td class="T5"></td><td class="T5"></td><td class="T5"></td></tr>
+
+                <tr><td class="T6">T6</td><td class="T6"></td><td class="T6"></td>
+                    <td class="T6"></td><td class="T6"></td><td class="T6"></td>
+                    <td class="T6"></td><td class="T6"></td><td class="T6"></td></tr>
+
+            </tbody>
+        </table>
+        <table border="1px" cellspacing='5px' class="Tracing" id="Tracing7">
+            <thead bgcolor="#edf6f9">
+                <tr><th colspan="9">Tracing</th></tr>
+
+                <tr><th>Time cycle</th>
+                    <th>PC</th><th>AR</th><th>DR</th><th>AC</th>
+                    <th>IR</th><th>M[AR]</th><th>E</th><th>SC</th></tr>
+            </thead>
+            <tbody align="center">
+                
+                <tr><td class="Initial"><strong>Initial</strong></td><td class="Initial"></td><td class="Initial"></td>
+                    <td class="Initial"></td><td class="Initial"></td><td class="Initial"></td><td class="Initial"></td>
+                    <td class="Initial"></td><td class="Initial"></td></tr>
+
+                <tr><td class="T0"><strong>T0</strong></td><td class="T0"></td><td class="T0"></td>
+                    <td class="T0"></td><td class="T0"></td><td class="T0"></td><td class="T0"></td>
+                    <td class="T0"></td> <td class="T0"></td></tr>
+
+                <tr><td class="T1">T1</td><td class="T1"></td><td class="T1"></td><td class="T1"></td>
+                    <td class="T1"></td><td class="T1"></td><td class="T1"></td><td class="T1"></td>
+                    <td class="T1"></td></tr>
+
+                <tr><td class="T2">T2</td><td class="T2"></td><td class="T2"></td><td class="T2"></td>
+                    <td class="T2"></td><td class="T2"></td><td class="T2"></td><td class="T2"></td>
+                    <td class="T2"></td> </tr>
+
+                <tr><td class="T3">T3</td><td class="T3"></td><td class="T3"></td><td class="T3"></td>
+                    <td class="T3"></td><td class="T3"></td><td class="T3"></td><td class="T3"></td>
+                    <td class="T3"></td></tr>
+
+                <tr><td class="T4">T4</td><td class="T4"></td><td class="T4"></td><td class="T4"></td>
+                    <td class="T4"></td><td class="T4"></td><td class="T4"></td><td class="T4"></td>
+                    <td class="T4"></td></tr>
+
+                <tr><td class="T5">T5</td><td class="T5"></td><td class="T5"></td><td class="T5"></td>
+                    <td class="T5"></td><td class="T5"></td><td class="T5"></td><td class="T5"></td>
+                    <td class="T5"></td></tr>
+
+                <tr><td class="T6">T6</td><td class="T6"></td><td class="T6"></td><td class="T6"></td>
+                    <td class="T6"></td><td class="T6"></td><td class="T6"></td><td class="T6"></td>
+                    <td class="T6"></td></tr>
+            </tbody>
+        </table>
+        <table border="1px" cellspacing='5px' class="Tracing" id="Tracing8">
+            <thead bgcolor="#edf6f9">
+                <tr><th colspan="9">Tracing</th></tr>
+
+                <tr><th>Time cycle</th>
+                    <th>PC</th><th>AR</th><th>DR</th><th>AC</th>
+                    <th>IR</th><th>M[AR]</th><th>E</th><th>SC</th></tr>
+            </thead>
+            <tbody align="center">
+
+                <tr><td class="Initial"><strong>Initial</strong></td><td class="Initial"></td><td class="Initial"></td>
+                    <td class="Initial"></td><td class="Initial"></td><td class="Initial"></td><td class="Initial"></td>
+                    <td class="Initial"></td><td class="Initial"></td></tr>
+
+                <tr><td class="T0"><strong>T0</strong></td><td class="T0"></td><td class="T0"></td> <td class="T0"></td>
+                    <td class="T0"></td><td class="T0"></td><td class="T0"></td><td class="T0"></td><td class="T0"></td></tr>
+
+                <tr><td class="T1">T1</td><td class="T1"></td><td class="T1"></td>
+                    <td class="T1"></td><td class="T1"></td><td class="T1"></td>
+                    <td class="T1"></td><td class="T1"></td><td class="T1"></td></tr>
+
+                <tr><td class="T2">T2</td><td class="T2"></td><td class="T2"></td><td class="T2"></td>
+                    <td class="T2"></td><td class="T2"></td><td class="T2"></td><td class="T2"></td>
+                    <td class="T2"></td></tr>
+
+                <tr><td class="T3">T3</td><td class="T3"></td><td class="T3"></td><td class="T3"></td>
+                    <td class="T3"></td><td class="T3"></td><td class="T3"></td><td class="T3"></td>
+                    <td class="T3"></td></tr>
+
+                <tr><td class="T4">T4</td><td class="T4"></td><td class="T4"></td><td class="T4"></td>
+                    <td class="T4"></td><td class="T4"></td><td class="T4"></td><td class="T4"></td>
+                    <td class="T4"></td></tr>
+
+                <tr><td class="T5">T5</td><td class="T5"></td><td class="T5"></td><td class="T5"></td>
+                    <td class="T5"></td><td class="T5"></td><td class="T5"></td><td class="T5"></td>
+                    <td class="T5"></td></tr>
+                    
+                <tr>
+                    <td class="T6">T6</td><td class="T6"></td><td class="T6"></td><td class="T6"></td>
+                    <td class="T6"></td><td class="T6"></td><td class="T6"></td><td class="T6"></td>
+                    <td class="T6"></td></tr>
+            </tbody>
+        </table>
+        <table border="1px" cellspacing='5px' class="Tracing" id="Tracing9">
+            <thead bgcolor="#edf6f9">
+
+                <tr><th colspan="9">Tracing</th></tr>
+
+                <tr><th>Time cycle</th>
+                    <th>PC</th><th>AR</th><th>DR</th><th>AC</th>
+                    <th>IR</th><th>M[AR]</th><th>E</th><th>SC</th> </tr>
+            </thead>
+            <tbody align="center">
+
+                <tr><td class="Initial"><strong>Initial</strong></td>
+                    <td class="Initial"></td><td class="Initial"></td><td class="Initial"></td><td class="Initial"></td>
+                    <td class="Initial"></td><td class="Initial"></td><td class="Initial"></td><td class="Initial"></td></tr>
+
+                <tr><td class="T0"><strong>T0</strong></td><td class="T0"></td><td class="T0"></td><td class="T0"></td>
+                    <td class="T0"></td><td class="T0"></td><td class="T0"></td><td class="T0"></td><td class="T0"></td></tr>
+
+                <tr><td class="T1">T1</td><td class="T1"></td><td class="T1"></td><td class="T1"></td>
+                    <td class="T1"></td><td class="T1"></td><td class="T1"></td><td class="T1"></td>
+                    <td class="T1"></td></tr>
+                <tr>
+                    <td class="T2">T2</td><td class="T2"></td><td class="T2"></td><td class="T2"></td>
+                    <td class="T2"></td><td class="T2"></td><td class="T2"></td><td class="T2"></td>
+                    <td class="T2"></td></tr>
+
+                <tr><td class="T3">T3</td><td class="T3"></td><td class="T3"></td><td class="T3"></td>
+                    <td class="T3"></td><td class="T3"></td><td class="T3"></td><td class="T3"></td>
+                    <td class="T3"></td></tr>
+
+                <tr><td class="T4">T4</td><td class="T4"></td><td class="T4"></td><td class="T4"></td>
+                    <td class="T4"></td><td class="T4"></td><td class="T4"></td><td class="T4"></td>
+                    <td class="T4"></td></tr>
+
+                <tr><td class="T5">T5</td><td class="T5"></td><td class="T5"></td><td class="T5"></td>
+                    <td class="T5"></td><td class="T5"></td><td class="T5"></td><td class="T5"></td>
+                    <td class="T5"></td></tr>
+
+                <tr> <td class="T6">T6</td><td class="T6"></td><td class="T6"></td><td class="T6"></td>
+                    <td class="T6"></td><td class="T6"></td><td class="T6"></td><td class="T6"></td>
+                    <td class="T6"></td></tr>
+            </tbody>
+        </table>
+        <table border="1px" cellspacing='5px' class="Tracing" id="Tracing10">
+            <thead bgcolor="#edf6f9">
+
+                <tr><th colspan="9">Tracing</th></tr>
+                <tr><th>Time cycle</th>
+                    <th>PC</th><th>AR</th><th>DR</th><th>AC</th>
+                    <th>IR</th><th>M[AR]</th><th>E</th><th>SC</th></tr>
+            </thead>
+            <tbody align="center">
+
+                <tr><td class="Initial"><strong>Initial</strong></td><td class="Initial"></td><td class="Initial"></td>
+                    <td class="Initial"></td><td class="Initial"></td><td class="Initial"></td><td class="Initial"></td>
+                    <td class="Initial"></td><td class="Initial"></td></tr>
+
+                <tr><td class="T0"><strong>T0</strong></td><td class="T0"></td><td class="T0"></td><td class="T0"></td>
+                    <td class="T0"></td> <td class="T0"></td><td class="T0"></td><td class="T0"></td><td class="T0"></td></tr>
+
+                <tr><td class="T1">T1</td><td class="T1"></td><td class="T1"></td><td class="T1"></td>
+                    <td class="T1"></td><td class="T1"></td><td class="T1"></td><td class="T1"></td><td class="T1"></td></tr>
+                <tr>
+                    <td class="T2">T2</td><td class="T2"></td><td class="T2"></td><td class="T2"></td><td class="T2"></td>
+                    <td class="T2"></td><td class="T2"></td><td class="T2"></td><td class="T2"></td></tr>
+                
+                    <tr><td class="T3">T3</td><td class="T3"></td><td class="T3"></td><td class="T3"></td><td class="T3"></td>
+                    <td class="T3"></td><td class="T3"></td><td class="T3"></td><td class="T3"></td></tr>
+
+                <tr><td class="T4">T4</td><td class="T4"></td><td class="T4"></td><td class="T4"></td>
+                    <td class="T4"></td><td class="T4"></td><td class="T4"></td><td class="T4"></td><td class="T4"></td></tr>
+
+                <tr><td class="T5">T5</td><td class="T5"></td><td class="T5"></td><td class="T5"></td><td class="T5"></td>
+                    <td class="T5"></td><td class="T5"></td><td class="T5"></td><td class="T5"></td></tr>
+
+                <tr><td class="T6">T6</td><td class="T6"></td><td class="T6"></td><td class="T6"></td>
+                    <td class="T6"></td><td class="T6"></td><td class="T6"></td><td class="T6"></td><td class="T6"></td></tr>
+
+            </tbody>
+        </table>
+        <table border="1px" cellspacing='5px' class="Tracing" id="Tracing11">
+            <thead bgcolor="#edf6f9">
+                <tr><th colspan="9">Tracing</th></tr>
+                
+                <tr><th>Time cycle</th>
+                    <th>PC</th><th>AR</th><th>DR</th><th>AC</th>
+                    <th>IR</th><th>M[AR]</th><th>E</th><th>SC</th></tr>
+            </thead>
+            <tbody align="center">
+                <tr><td class="Initial"><strong>Initial</strong></td><td class="Initial"></td><td class="Initial"></td>
+                    <td class="Initial"></td><td class="Initial"></td><td class="Initial"></td><td class="Initial"></td>
+                    <td class="Initial"></td><td class="Initial"></td></tr>
+                
+                    <tr><td class="T0"><strong>T0</strong></td><td class="T0"></td><td class="T0"></td><td class="T0"></td>
+                    <td class="T0"></td><td class="T0"></td><td class="T0"></td><td class="T0"></td><td class="T0"></td></tr>
+                
+                    <tr><td class="T1">T1</td><td class="T1"></td><td class="T1"></td><td class="T1"></td><td class="T1"></td>
+                    <td class="T1"></td><td class="T1"></td><td class="T1"></td><td class="T1"></td></tr>
+               
+                    <tr><td class="T2">T2</td><td class="T2"></td><td class="T2"></td><td class="T2"></td><td class="T2"></td>
+                    <td class="T2"></td><td class="T2"></td><td class="T2"></td><td class="T2"></td></tr>
+
+                <tr><td class="T3">T3</td><td class="T3"></td><td class="T3"></td><td class="T3"></td><td class="T3"></td>
+                    <td class="T3"></td><td class="T3"></td><td class="T3"></td><td class="T3"></td></tr>
+
+                <tr><td class="T4">T4</td><td class="T4"></td><td class="T4"></td><td class="T4"></td><td class="T4"></td>
+                    <td class="T4"></td><td class="T4"></td><td class="T4"></td><td class="T4"></td></tr>
+
+                <tr><td class="T5">T5</td><td class="T5"></td><td class="T5"></td><td class="T5"></td><td class="T5"></td>
+                    <td class="T5"></td><td class="T5"></td><td class="T5"></td><td class="T5"></td></tr>
+               
+                    <tr><td class="T6">T6</td><td class="T6"></td><td class="T6"></td><td class="T6"></td><td class="T6"></td>
+                    <td class="T6"></td><td class="T6"></td><td class="T6"></td><td class="T6"></td></tr>
+
+            </tbody>
+        </table>
+        <table border="1px" cellspacing='5px' class="Tracing" id="Tracing12">
+            <thead bgcolor="#edf6f9">
+                <tr>
+                    <th colspan="9">Tracing</th>
+                </tr>
+                <tr>
+                    <th>Time cycle</th>
+                    <th>PC</th><th>AR</th><th>DR</th><th>AC</th>
+                    <th>IR</th><th>M[AR]</th><th>E</th><th>SC</th></tr>
+            </thead>
+            <tbody align="center">
+                
+                <tr><td class="Initial"><strong>Initial</strong></td><td class="Initial"></td><td class="Initial"></td>
+                    <td class="Initial"></td><td class="Initial"></td><td class="Initial"></td><td class="Initial"></td>
+                    <td class="Initial"></td><td class="Initial"></td></tr>
+                    
+                <tr><td class="T0"><strong>T0</strong></td><td class="T0"></td><td class="T0"></td><td class="T0"></td>
+                    <td class="T0"></td><td class="T0"></td><td class="T0"></td><td class="T0"></td><td class="T0"></td></tr>
+
+                <tr><td class="T1">T1</td><td class="T1"></td><td class="T1"></td><td class="T1"></td>
+                    <td class="T1"></td><td class="T1"></td><td class="T1"></td><td class="T1"></td><td class="T1"></td></tr>
+
+                <tr><td class="T2">T2</td><td class="T2"></td><td class="T2"></td><td class="T2"></td>
+                    <td class="T2"></td><td class="T2"></td><td class="T2"></td><td class="T2"></td><td class="T2"></td></tr>
+                
+                <tr><td class="T3">T3</td><td class="T3"></td><td class="T3"></td><td class="T3"></td><td class="T3"></td>
+                    <td class="T3"></td><td class="T3"></td><td class="T3"></td><td class="T3"></td></tr>
+                
+                    <tr><td class="T4">T4</td><td class="T4"></td><td class="T4"></td><td class="T4"></td><td class="T4"></td>
+                    <td class="T4"></td><td class="T4"></td><td class="T4"></td><td class="T4"></td></tr>
+
+                <tr><td class="T5">T5</td><td class="T5"></td><td class="T5"></td><td class="T5"></td>
+                    <td class="T5"></td><td class="T5"></td><td class="T5"></td><td class="T5"></td>
+                    <td class="T5"></td></tr>
+                <tr><td class="T6">T6</td><td class="T6"></td><td class="T6"></td><td class="T6"></td><td class="T6"></td>
+                <td class="T6"></td><td class="T6"></td><td class="T6"></td><td class="T6"></td></tr>
+            </tbody>
+        </table>
+        <table border="1px" cellspacing='5px' class="Tracing" id="Tracing13">
+            <thead bgcolor="#edf6f9">
+                <tr><th colspan="9">Tracing</th></tr>
+                
+                <tr><th>Time cycle</th>
+                    <th>PC</th><th>AR</th><th>DR</th><th>AC</th>
+                    <th>IR</th><th>M[AR]</th><th>E</th><th>SC</th></tr>
+            </thead>
+            <tbody align="center">
+
+                <tr><td class="Initial"><strong>Initial</strong></td><td class="Initial"></td><td class="Initial"></td>
+                    <td class="Initial"></td><td class="Initial"></td><td class="Initial"></td><td class="Initial"></td>
+                    <td class="Initial"></td><td class="Initial"></td></tr>
+                
+                    <tr><td class="T0"><strong>T0</strong></td><td class="T0"></td><td class="T0"></td><td class="T0"></td>
+                    <td class="T0"></td><td class="T0"></td><td class="T0"></td><td class="T0"></td><td class="T0"></td></tr>
+
+                <tr><td class="T1">T1</td><td class="T1"></td><td class="T1"></td><td class="T1"></td><td class="T1"></td>
+                    <td class="T1"></td><td class="T1"></td><td class="T1"></td><td class="T1"></td></tr>
+               
+                    <tr> <td class="T2">T2</td><td class="T2"></td><td class="T2"></td><td class="T2"></td><td class="T2"></td>
+                    <td class="T2"></td><td class="T2"></td><td class="T2"></td><td class="T2"></td></tr>
+               
+                    <tr><td class="T3">T3</td><td class="T3"></td><td class="T3"></td><td class="T3"></td><td class="T3"></td>
+                    <td class="T3"></td><td class="T3"></td><td class="T3"></td><td class="T3"></td></tr>
+                
+                    <tr><td class="T4">T4</td><td class="T4"></td><td class="T4"></td><td class="T4"></td>
+                    <td class="T4"></td><td class="T4"></td><td class="T4"></td><td class="T4"></td>
+                    <td class="T4"></td></tr>
+
+                <tr><td class="T5">T5</td><td class="T5"></td><td class="T5"></td><td class="T5"></td><td class="T5"></td>
+                    <td class="T5"></td><td class="T5"></td><td class="T5"></td><td class="T5"></td></tr>
+               
+                    <tr><td class="T6">T6</td><td class="T6"></td><td class="T6"></td><td class="T6"></td><td class="T6"></td>
+                    <td class="T6"></td><td class="T6"></td><td class="T6"></td><td class="T6"></td></tr>
+            </tbody>
+        </table>
+        <table border="1px" cellspacing='5px' class="Tracing" id="Tracing14">
+            <thead bgcolor="#edf6f9">
+
+                <tr><th colspan="9">Tracing</th> </tr>
+               
+                <tr><th>Time cycle</th>
+                    <th>PC</th><th>AR</th><th>DR</th><th>AC</th>
+                    <th>IR</th><th>M[AR]</th><th>E</th><th>SC</th></tr>
+            </thead>
+            <tbody align="center">
+
+                <tr><td class="Initial"><strong>Initial</strong></td><td class="Initial"></td><td class="Initial"></td>
+                    <td class="Initial"></td><td class="Initial"></td><td class="Initial"></td><td class="Initial"></td>
+                    <td class="Initial"></td><td class="Initial"></td></tr>
+                
+                    <tr><td class="T0"><strong>T0</strong></td><td class="T0"></td><td class="T0"></td><td class="T0"></td>
+                    <td class="T0"></td><td class="T0"></td><td class="T0"></td><td class="T0"></td><td class="T0"></td></tr>
+               
+                    <tr><td class="T1">T1</td><td class="T1"></td><td class="T1"></td><td class="T1"></td><td class="T1"></td>
+                    <td class="T1"></td><td class="T1"></td><td class="T1"></td><td class="T1"></td></tr>
+                
+                    <tr><td class="T2">T2</td><td class="T2"></td><td class="T2"></td><td class="T2"></td><td class="T2"></td>
+                    <td class="T2"></td><td class="T2"></td><td class="T2"></td><td class="T2"></td></tr>
+                
+                    <tr><td class="T3">T3</td><td class="T3"></td><td class="T3"></td><td class="T3"></td><td class="T3"></td>
+                    <td class="T3"></td><td class="T3"></td><td class="T3"></td><td class="T3"></td></tr>
+                    
+                    <tr><td class="T4">T4</td><td class="T4"></td><td class="T4"></td><td class="T4"></td><td class="T4"></td>
+                    <td class="T4"></td><td class="T4"></td><td class="T4"></td><td class="T4"></td></tr>
+
+                <tr><td class="T5">T5</td><td class="T5"></td><td class="T5"></td><td class="T5"></td><td class="T5"></td>
+                    <td class="T5"></td><td class="T5"></td><td class="T5"></td><td class="T5"></td></tr>
+                
+                <tr><td class="T6">T6</td><td class="T6"></td><td class="T6"></td><td class="T6"></td><td class="T6"></td>
+                    <td class="T6"></td><td class="T6"></td><td class="T6"></td><td class="T6"></td></tr>
+            </tbody>
+        </table>
+        <table border="1px" cellspacing='5px' class="Tracing" id="Tracing15">
+            <thead bgcolor="#edf6f9">
+                <tr><th colspan="9">Tracing</th></tr>
+               
+                <tr><th>Time cycle</th>
+                    <th>PC</th><th>AR</th><th>DR</th><th>AC</th>
+                    <th>IR</th><th>M[AR]</th><th>E</th><th>SC</th></tr>
+            </thead>
+            <tbody align="center">
+
+                <tr><td class="Initial"><strong>Initial</strong></td><td class="Initial"></td><td class="Initial"></td>
+                    <td class="Initial"></td><td class="Initial"></td><td class="Initial"></td><td class="Initial"></td>
+                    <td class="Initial"></td><td class="Initial"></td></tr>
+               
+                    <tr><td class="T0"><strong>T0</strong></td><td class="T0"></td><td class="T0"></td><td class="T0"></td>
+                    <td class="T0"></td><td class="T0"></td><td class="T0"></td><td class="T0"></td><td class="T0"></td></tr>
+                
+                <tr><td class="T1">T1</td><td class="T1"></td><td class="T1"></td><td class="T1"></td><td class="T1"></td>
+                    <td class="T1"></td><td class="T1"></td><td class="T1"></td><td class="T1"></td></tr>
+                
+                <tr><td class="T2">T2</td><td class="T2"></td><td class="T2"></td><td class="T2"></td><td class="T2"></td>
+                    <td class="T2"></td><td class="T2"></td><td class="T2"></td><td class="T2"></td></tr>
+                
+                    <tr><td class="T3">T3</td><td class="T3"></td><td class="T3"></td><td class="T3"></td><td class="T3"></td>
+                    <td class="T3"></td><td class="T3"></td><td class="T3"></td><td class="T3"></td></tr>
+                
+                <tr><td class="T4">T4</td><td class="T4"></td><td class="T4"></td><td class="T4"></td><td class="T4"></td>
+                    <td class="T4"></td><td class="T4"></td><td class="T4"></td><td class="T4"></td></tr>
+               
+                <tr><td class="T5">T5</td><td class="T5"></td><td class="T5"></td><td class="T5"></td><td class="T5"></td>
+                    <td class="T5"></td><td class="T5"></td><td class="T5"></td><td class="T5"></td></tr>
+                
+                <tr><td class="T6">T6</td><td class="T6"></td><td class="T6"></td><td class="T6"></td><td class="T6"></td>
+                    <td class="T6"></td><td class="T6"></td><td class="T6"></td><td class="T6"></td></tr>
+            </tbody>
+        </table>
+        <table border="1px" cellspacing='5px' class="Tracing" id="Tracing16">
+            <thead bgcolor="#edf6f9">
+
+                <tr><th colspan="9">Tracing</th></tr>
+               
+                <tr><th>Time cycle</th>
+                    <th>PC</th><th>AR</th><th>DR</th><th>AC</th>
+                    <th>IR</th><th>M[AR]</th><th>E</th><th>SC</th></tr>
+            </thead>
+            <tbody align="center">
+                
+                <tr><td class="Initial"><strong>Initial</strong></td><td class="Initial"></td><td class="Initial"></td><td class="Initial"></td>
+                <td class="Initial"></td><td class="Initial"></td><td class="Initial"></td><td class="Initial"></td><td class="Initial"></td></tr>
+
+                <tr><td class="T0"><strong>T0</strong></td><td class="T0"></td><td class="T0"></td><td class="T0"></td>
+                    <td class="T0"></td><td class="T0"></td><td class="T0"></td><td class="T0"></td><td class="T0"></td></tr>
+
+                <tr><td class="T1">T1</td><td class="T1"></td><td class="T1"></td><td class="T1"></td><td class="T1"></td>
+                    <td class="T1"></td><td class="T1"></td><td class="T1"></td><td class="T1"></td></tr>
+                
+                <tr><td class="T2">T2</td><td class="T2"></td><td class="T2"></td><td class="T2"></td><td class="T2"></td>
+                    <td class="T2"></td><td class="T2"></td><td class="T2"></td><td class="T2"></td></tr>
+                
+                <tr><td class="T3">T3</td><td class="T3"></td><td class="T3"></td><td class="T3"></td><td class="T3"></td>
+                    <td class="T3"></td><td class="T3"></td><td class="T3"></td><td class="T3"></td></tr>
+                
+                <tr><td class="T4">T4</td><td class="T4"></td><td class="T4"></td><td class="T4"></td><td class="T4"></td>
+                    <td class="T4"></td><td class="T4"></td><td class="T4"></td><td class="T4"></td></tr>
+                
+                <tr><td class="T5">T5</td><td class="T5"></td><td class="T5"></td><td class="T5"></td><td class="T5"></td>
+                    <td class="T5"></td><td class="T5"></td><td class="T5"></td><td class="T5"></td></tr>
+
+                <tr><td class="T6">T6</td><td class="T6"></td><td class="T6"></td><td class="T6"></td><td class="T6"></td>
+                    <td class="T6"></td><td class="T6"></td><td class="T6"></td><td class="T6"></td></tr>
+            </tbody>
+        </table>        
+        <table border="1px" cellspacing='5px' class="Tracing" id="Tracing17">
+            <thead bgcolor="#edf6f9">
+                <tr>
+                    <th colspan="9">Tracing</th>
+                </tr>
+                <tr><th>Time cycle</th>
+                    <th>PC</th><th>AR</th><th>DR</th><th>AC</th>
+                    <th>IR</th><th>M[AR]</th><th>E</th><th>SC</th></tr>
+            </thead>
+            <tbody align="center">
+                
+                <tr><td class="Initial"><strong>Initial</strong></td><td class="Initial"></td><td class="Initial"></td>
+                    <td class="Initial"></td><td class="Initial"></td><td class="Initial"></td><td class="Initial"></td>
+                    <td class="Initial"></td><td class="Initial"></td></tr>
+
+                <tr><td class="T0"><strong>T0</strong></td><td class="T0"></td><td class="T0"></td><td class="T0"></td>
+                    <td class="T0"></td><td class="T0"></td><td class="T0"></td><td class="T0"></td><td class="T0"></td></tr>
+                
+                <tr><td class="T1">T1</td><td class="T1"></td><td class="T1"></td><td class="T1"></td><td class="T1"></td>
+                    <td class="T1"></td><td class="T1"></td><td class="T1"></td><td class="T1"></td></tr>
+               
+                <tr><td class="T2">T2</td><td class="T2"></td><td class="T2"></td><td class="T2"></td><td class="T2"></td>
+                    <td class="T2"></td><td class="T2"></td><td class="T2"></td><td class="T2"></td></tr>
+                
+                <tr><td class="T3">T3</td><td class="T3"></td><td class="T3"></td><td class="T3"></td><td class="T3"></td>
+                    <td class="T3"></td><td class="T3"></td><td class="T3"></td><td class="T3"></td></tr>
+                
+                <tr><td class="T4">T4</td><td class="T4"></td><td class="T4"></td><td class="T4"></td><td class="T4"></td>
+                    <td class="T4"></td><td class="T4"></td><td class="T4"></td><td class="T4"></td></tr>
+               
+                <tr><td class="T5">T5</td><td class="T5"></td><td class="T5"></td><td class="T5"></td><td class="T5"></td>
+                    <td class="T5"></td><td class="T5"></td><td class="T5"></td><td class="T5"></td></tr>
+                
+                <tr><td class="T6">T6</td><td class="T6"></td><td class="T6"></td><td class="T6"></td><td class="T6"></td>
+                    <td class="T6"></td><td class="T6"></td><td class="T6"></td><td class="T6"></td></tr>
+            </tbody>
+        </table>
+        <table border="1px" cellspacing='5px' class="Tracing" id="Tracing18">
+            <thead bgcolor="#edf6f9">
+                <tr><th colspan="9">Tracing</th></tr>
+                
+                <tr><th>Time cycle</th>
+                    <th>PC</th>
+                    <th>AR</th><th>DR</th><th>AC</th>
+                    <th>IR</th><th>M[AR]</th><th>E</th><th>SC</th></tr>
+            </thead>
+            <tbody align="center">
+                <tr>
+                    <td class="Initial"><strong>Initial</strong></td><td class="Initial"></td><td class="Initial"></td>
+                    <td class="Initial"></td><td class="Initial"></td><td class="Initial"></td><td class="Initial"></td>
+                    <td class="Initial"></td><td class="Initial"></td></tr>
+                
+                <tr><td class="T0"><strong>T0</strong></td><td class="T0"></td><td class="T0"></td><td class="T0"></td>
+                    <td class="T0"></td><td class="T0"></td><td class="T0"></td><td class="T0"></td><td class="T0"></td></tr>
+
+                <tr><td class="T1">T1</td><td class="T1"></td><td class="T1"></td><td class="T1"></td><td class="T1"></td>
+                    <td class="T1"></td><td class="T1"></td><td class="T1"></td><td class="T1"></td></tr>
+               
+                <tr><td class="T2">T2</td> <td class="T2"></td> <td class="T2"></td> <td class="T2"></td> <td class="T2"></td>
+                    <td class="T2"></td> <td class="T2"></td> <td class="T2"></td> <td class="T2"></td></tr>
+                
+                    <tr><td class="T3">T3</td> <td class="T3"></td> <td class="T3"></td> <td class="T3"></td><td class="T3"></td> 
+                    <td class="T3"></td> <td class="T3"></td> <td class="T3"></td> <td class="T3"></td></tr>
+
+                <tr> <td class="T4">T4</td> <td class="T4"></td> <td class="T4"></td> <td class="T4"></td>
+                    <td class="T4"></td> <td class="T4"></td> <td class="T4"></td> <td class="T4"></td> <td class="T4"></td></tr>
+                
+                <tr><td class="T5">T5</td><td class="T5"></td> <td class="T5"></td> <td class="T5"></td> <td class="T5"></td>
+                    <td class="T5"></td> <td class="T5"></td> <td class="T5"></td> <td class="T5"></td></tr>
+                <tr>
+                    <td class="T6">T6</td> <td class="T6"></td> <td class="T6"></td> <td class="T6"></td>
+                    <td class="T6"></td> <td class="T6"></td> <td class="T6"></td> <td class="T6"></td> <td class="T6"></td> </tr>
+            </tbody>
+        </table>
+        <table border="1px" cellspacing='5px' class="Tracing" id="Tracing19">
+            <thead bgcolor="#edf6f9">
+
+                <tr><th colspan="9">Tracing</th></tr>
+
+                <tr><th>Time cycle</th>
+                    <th>PC</th><th>AR</th><th>DR</th><th>AC</th>
+                    <th>IR</th><th>M[AR]</th> <th>E</th> <th>SC</th></tr>
+            </thead>
+            <tbody align="center">
+                <tr>
+                    <td class="Initial"><strong>Initial</strong></td> <td class="Initial"></td> <td class="Initial"></td> <td class="Initial"></td>
+                    <td class="Initial"></td><td class="Initial"></td> <td class="Initial"></td> <td class="Initial"></td> <td class="Initial"></td></tr>
+                <tr>
+                    <td class="T0"><strong>T0</strong></td>
+                    <td class="T0"></td> <td class="T0"></td> <td class="T0"></td> <td class="T0"></td> <td class="T0"></td>
+                    <td class="T0"></td> <td class="T0"></td> <td class="T0"></td></tr>
+
+                <tr>
+                    <td class="T1">T1</td><td class="T1"></td> <td class="T1"></td> <td class="T1"></td> <td class="T1"></td>
+                    <td class="T1"></td> <td class="T1"></td> <td class="T1"></td> <td class="T1"></td></tr>
+                <tr>
+                    <td class="T2">T2</td> <td class="T2"></td> <td class="T2"></td> <td class="T2"></td><td class="T2"></td>
+                    <td class="T2"></td> <td class="T2"></td> <td class="T2"></td> <td class="T2"></td></tr>
+                <tr>
+                    <td class="T3">T3</td><td class="T3"></td> <td class="T3"></td> <td class="T3"></td> <td class="T3"></td>
+                    <td class="T3"></td> <td class="T3"></td> <td class="T3"></td> <td class="T3"></td></tr>
+                <tr>
+                    <td class="T4">T4</td><td class="T4"></td> <td class="T4"></td> <td class="T4"></td><td class="T4"></td>
+                    <td class="T4"></td> <td class="T4"></td> <td class="T4"></td> <td class="T4"></td></tr>
+                <tr>
+                    <td class="T5">T5</td><td class="T5"></td> <td class="T5"></td> <td class="T5"></td> <td class="T5"></td>
+                    <td class="T5"></td> <td class="T5"></td> <td class="T5"></td> <td class="T5"></td> </tr> 
+                    
+                    <tr><td class="T6">T6</td><td class="T6"></td><td class="T6"></td><td class="T6"></td><td class="T6"></td>
+                    <td class="T6"></td><td class="T6"></td> <td class="T6"></td> <td class="T6"></td> </tr>
+            </tbody>
+        </table>
+        <table border="1px" cellspacing='5px' class="Tracing" id="Tracing20">
+            <thead bgcolor="#edf6f9">
+                <tr><th colspan="9">Tracing</th> </tr>
+                
+                <tr><th>Time cycle</th>
+                    <th>PC</th><th>AR</th> <th>DR</th> <th>AC</th> <th>IR</th>
+                    <th>M[AR]</th> <th>E</th> <th>SC</th> </tr>
+                </thead>
+            <tbody align="center">
+                <tr>
+                    <td class="Initial"><strong>Initial</strong></td>
+                    <td class="Initial"></td> <td class="Initial"></td><td class="Initial"></td><td class="Initial"></td>
+                    <td class="Initial"></td> <td class="Initial"></td><td class="Initial"></td><td class="Initial"></td></tr>
+                <tr>
+                    <td class="T0"><strong>T0</strong></td><td class="T0"></td> <td class="T0"></td><td class="T0"></td><td class="T0"></td>
+                    <td class="T0"></td> <td class="T0"></td> <td class="T0"></td> <td class="T0"></td> </tr>
+                
+                <tr>
+                    <td class="T1">T1</td><td class="T1"></td> <td class="T1"></td> <td class="T1"></td> <td class="T1"></td>
+                    <td class="T1"></td><td class="T1"></td> <td class="T1"></td> <td class="T1"></td> </tr>
+                <tr>
+                    <td class="T2">T2</td><td class="T2">
+                    </td> <td class="T2"></td> <td class="T2"></td> <td class="T2"></td> <td class="T2"></td>
+                    <td class="T2"></td> <td class="T2"></td> <td class="T2"></td> </tr>
+               
+                <tr><td class="T3">T3</td> <td class="T3"></td></td><td class="T3"></td> <td class="T3">
+                    </td><td class="T3"></td><td class="T3"></td> <td class="T3"></td> </tr>
+                
+                <tr><td class="T4">T4</td><td class="T4"></td> <td class="T4"></td> <td class="T4"></td> <td class="T4"></td>
+                    <td class="T4"></td> <td class="T4"></td> <td class="T4"></td> <td class="T4"></td> </tr>
+                
+                <tr><td class="T5">T5</td> <td class="T5"></td>
+                    <td class="T5"></td> <td class="T5"></td> <td class="T5"></td><td class="T5"></td>
+                    <td class="T5"></td> <td class="T5"></td> <td class="T5"></td></tr>
+
+                <tr> <td class="T6">T6</td> <td class="T6"></td><td class="T6"></td>
+                    <td class="T6"></td> <td class="T6"></td> <td class="T6"></td>
+                    <td class="T6"></td> <td class="T6"></td> <td class="T6"></td> </tr>
+            </tbody>
+        </table>
+        <table border="1px" cellspacing='5px' class="Tracing" id="Tracing21">
+            <thead bgcolor="#edf6f9">
+                <tr>
+                    <th colspan="9">Tracing</th>
+                </tr>
+                <tr>
+                    <th>Time cycle</th>
+                    <th>PC</th><th>AR</th> <th>DR</th> <th>AC</th>
+                    <th>IR</th> <th>M[AR]</th> <th>E</th> <th>SC</th></tr>
+            </thead>
+            <tbody align="center">
+                <tr><td class="Initial"><strong>Initial</strong></td><td class="Initial"></td> <td class="Initial"></td> <td class="Initial"></td>
+                    <td class="Initial"></td><td class="Initial"></td> <td class="Initial"></td> <td class="Initial"></td><td class="Initial"></td></tr>
+                
+                <tr> <td class="T0"><strong>T0</strong></td><td class="T0"></td> <td class="T0"></td> <td class="T0"></td> <td class="T0"></td> 
+                    <td class="T0"></td><td class="T0"></td> <td class="T0"></td> <td class="T0"></td> </tr>
+                
+                <tr> <td class="T1">T1</td> <td class="T1"></td> <td class="T1"></td> <td class="T1"></td> 
+                    <td class="T1"></td><td class="T1"></td> <td class="T1"></td> <td class="T1"></td> <td class="T1"></td></tr>
+
+                <tr> <td class="T2">T2</td> <td class="T2"></td> <td class="T2"></td> <td class="T2"></td><td class="T2"></td>
+                    <td class="T2"></td> <td class="T2"></td> <td class="T2"></td> <td class="T2"></td></tr>
+                
+                <tr><td class="T3">T3</td> <td class="T3"></td> <td class="T3"></td> <td class="T3"></td> <td class="T3"></td>
+                    <td class="T3"></td><td class="T3"></td> <td class="T3"></td> <td class="T3"></td> </tr>
+                
+                    <tr><td class="T4">T4</td> <td class="T4"></td> <td class="T4"></td> <td class="T4"></td> <td class="T4"></td>
+                    <td class="T4"></td> <td class="T4"></td> <td class="T4"></td> <td class="T4"></td></tr>
+               
+                <tr><td class="T5">T5</td><td class="T5"></td> <td class="T5"></td> <td class="T5"></td> <td class="T5"></td>
+                    <td class="T5"></td> <td class="T5"></td> <td class="T5"></td> <td class="T5"></td> </tr>
+
+                <tr> <td class="T6">T6</td><td class="T6"></td> <td class="T6"></td> <td class="T6"></td> <td class="T6"></td>
+                    <td class="T6"></td> <td class="T6"></td> <td class="T6"></td> <td class="T6"></td> </tr>
+            </tbody>
+        </table>
+        <table border="1px" cellspacing='5px' class="Tracing" id="Tracing22">
+            <thead bgcolor="#edf6f9">
+                <tr>
+                    <th colspan="9">Tracing</th>
+                </tr>
+                <tr>
+                    <th>Time cycle</th>
+                    <th>PC</th><th>AR</th> <th>DR</th> <th>AC</th>
+                    <th>IR</th><th>M[AR]</th> <th>E</th> <th>SC</th></tr>
+            </thead>
+            <tbody align="center">
+                <tr>
+                    <td class="Initial"><strong>Initial</strong></td> <td class="Initial"></td>
+                    <td class="Initial"></td> <td class="Initial"></td> <td class="Initial"></td> <td class="Initial"></td>
+                    <td class="Initial"></td> <td class="Initial"></td> <td class="Initial"></td> </tr>
+
+                <tr> <td class="T0"><strong>T0</strong></td> <td class="T0"></td> <td class="T0"></td> <td class="T0"></td>
+                    <td class="T0"></td> <td class="T0"></td> <td class="T0"></td> <td class="T0"></td> <td class="T0"></td> </tr>
+
+                <tr> <td class="T1">T1</td> <td class="T1"></td> <td class="T1"></td> <td class="T1"></td>
+                    <td class="T1"></td> <td class="T1"></td> <td class="T1"></td> <td class="T1"></td> <td class="T1"></td> </tr>
+
+                <tr> <td class="T2">T2</td> <td class="T2"></td> <td class="T2"></td> <td class="T2"></td> <td class="T2"></td>
+                    <td class="T2"></td> <td class="T2"></td> <td class="T2"></td> <td class="T2"></td> </tr>
+
+                <tr> <td class="T3">T3</td> <td class="T3"></td> <td class="T3"></td> <td class="T3"></td>
+                    <td class="T3"></td> <td class="T3"></td> <td class="T3"></td> <td class="T3"></td> <td class="T3"></td> </tr>
+
+                <tr> <td class="T4">T4</td> <td class="T4"></td> <td class="T4"></td> <td class="T4"></td> <td class="T4"></td>
+                    <td class="T4"></td> <td class="T4"></td> <td class="T4"></td> <td class="T4"></td> </tr>
+
+                <tr> <td class="T5">T5</td> <td class="T5"></td> <td class="T5"></td> <td class="T5"></td> <td class="T5"></td>
+                    <td class="T5"></td> <td class="T5"></td> <td class="T5"></td> <td class="T5"></td> </tr>
+                    
+                <tr> <td class="T6">T6</td> <td class="T6"></td> <td class="T6"></td> <td class="T6"></td> <td class="T6"></td>
+                    <td class="T6"></td> <td class="T6"></td> <td class="T6"></td> <td class="T6"></td> </tr>
+            </tbody>
+        </table>
+        <table border="1px" cellspacing='5px' class="Tracing" id="Tracing23">
+            <thead bgcolor="#edf6f9">
+                <tr>
+                    <th colspan="9">Tracing</th>
+                </tr>
+                <tr>
+                    <th>Time cycle</th>
+                    <th>PC</th> <th>AR</th> <th>DR</th> <th>AC</th>
+                    <th>IR</th> <th>M[AR]</th> <th>E</th> <th>SC</th>
+                </tr>
+            </thead>
+            <tbody align="center">
+
+                <tr> <td class="Initial"><strong>Initial</strong></td> <td class="Initial"></td> <td class="Initial"></td> <td class="Initial"></td> <td class="Initial"></td>
+                    <td class="Initial"></td> <td class="Initial"></td> <td class="Initial"></td> <td class="Initial"></td> </tr>
+
+                <tr><td class="T0"><strong>T0</strong></td> <td class="T0"></td> <td class="T0"></td> <td class="T0"></td> <td class="T0"></td>
+                    <td class="T0"></td> <td class="T0"></td> <td class="T0"></td> <td class="T0"></td> </tr>
+
+                <tr> <td class="T1">T1</td> <td class="T1"></td> <td class="T1"></td> <td class="T1"></td> <td class="T1"></td>
+                    <td class="T1"></td> <td class="T1"></td> <td class="T1"></td> <td class="T1"></td> </tr>
+
+                <tr> <td class="T2">T2</td> <td class="T2"></td> <td class="T2"></td> <td class="T2"></td> <td class="T2"></td>
+                    <td class="T2"></td> <td class="T2"></td> <td class="T2"></td> <td class="T2"></td> </tr>
+
+                <tr> <td class="T3">T3</td> <td class="T3"></td> <td class="T3"></td> <td class="T3"></td> <td class="T3"></td>
+                    <td class="T3"></td> <td class="T3"></td> <td class="T3"></td> <td class="T3"></td> </tr>
+
+                <tr> <td class="T4">T4</td> <td class="T4"></td> <td class="T4"></td> <td class="T4"></td> <td class="T4"></td>
+                    <td class="T4"></td> <td class="T4"></td> <td class="T4"></td> <td class="T4"></td> </tr>
+
+                <tr> <td class="T5">T5</td> <td class="T5"></td> <td class="T5"></td> <td class="T5"></td>
+                    <td class="T5"></td>
+                    <td class="T5"></td> <td class="T5"></td> <td class="T5"></td> <td class="T5"></td> </tr>
+
+                <tr> <td class="T6">T6</td> <td class="T6"></td> <td class="T6"></td> <td class="T6"></td> <td class="T6"></td>
+                    <td class="T6"></td> <td class="T6"></td> <td class="T6"></td> <td class="T6"></td> </tr>
+            </tbody>
+        </table>
+        <table border="1px" cellspacing='5px' class="Tracing" id="Tracing24">
+            <thead bgcolor="#edf6f9">
+                <tr><th colspan="9">Tracing</th></tr>
+                <tr><th>Time cycle</th>
+                    <th>PC</th> <th>AR</th> <th>DR</th> <th>AC</th>
+                    <th>IR</th> <th>M[AR]</th> <th>E</th> <th>SC</th></tr>
+            </thead>
+            <tbody align="center">
+
+                <tr><td class="Initial"><strong>Initial</strong></td> <td class="Initial"></td> <td class="Initial"></td> <td class="Initial"></td> 
+                    <td class="Initial"></td><td class="Initial"></td> <td class="Initial"></td> <td class="Initial"></td> <td class="Initial"></td> </tr>
+
+                <tr> <td class="T0"><strong>T0</strong></td> <td class="T0"></td> <td class="T0"></td> <td class="T0"></td> <td class="T0"></td>
+                    <td class="T0"></td> <td class="T0"></td> <td class="T0"></td> <td class="T0"></td> </tr>
+
+                <tr> <td class="T1">T1</td> <td class="T1"></td> <td class="T1"></td> <td class="T1"></td> <td class="T1"></td>
+                    <td class="T1"></td> <td class="T1"></td> <td class="T1"></td> <td class="T1"></td> </tr>
+
+                <tr> <td class="T2">T2</td> <td class="T2"></td> <td class="T2"></td> <td class="T2"></td> <td class="T2"></td>
+                    <td class="T2"></td> <td class="T2"></td> <td class="T2"></td> <td class="T2"></td> </tr>
+
+                <tr> <td class="T3">T3</td> <td class="T3"></td> <td class="T3"></td> <td class="T3"></td> <td class="T3"></td>
+                    <td class="T3"></td> <td class="T3"></td> <td class="T3"></td> <td class="T3"></td> </tr>
+
+                <tr> <td class="T4">T4</td> <td class="T4"></td> <td class="T4"></td> <td class="T4"></td> <td class="T4"></td>
+                    <td class="T4"></td> <td class="T4"></td> <td class="T4"></td> <td class="T4"></td> </tr>
+
+                <tr> <td class="T5">T5</td> <td class="T5"></td> <td class="T5"></td> <td class="T5"></td> <td class="T5"></td>
+                    <td class="T5"></td> <td class="T5"></td> <td class="T5"></td> <td class="T5"></td> </tr>
+
+                <tr> <td class="T6">T6</td> <td class="T6"></td> <td class="T6"></td> <td class="T6"></td> <td class="T6"></td>
+                    <td class="T6"></td> <td class="T6"></td> <td class="T6"></td> <td class="T6"></td> </tr>
+            </tbody>
+        </table>
+        <table border="1px" cellspacing='5px' class="Tracing" id="Tracing25">
+            <thead bgcolor="#edf6f9">
+                <tr> <th colspan="9">Tracing</th> </tr>
+
+                <tr><th>Time cycle</th>
+                    <th>PC</th> <th>AR</th> <th>DR</th> <th>AC</th>
+                    <th>IR</th> <th>M[AR]</th> <th>E</th> <th>SC</th> </tr>
+            </thead>
+            <tbody align="center">
+                <tr>
+                    <td class="Initial"><strong>Initial</strong></td> <td class="Initial"></td> <td class="Initial"></td> <td class="Initial"></td>
+                    <td class="Initial"></td><td class="Initial"></td> <td class="Initial"></td> <td class="Initial"></td> <td class="Initial"></td></tr>
+
+                <tr> <td class="T0"><strong>T0</strong></td> <td class="T0"></td> <td class="T0"></td> <td class="T0"></td>
+                    <td class="T0"></td> <td class="T0"></td> <td class="T0"></td> <td class="T0"></td> <td class="T0"></td> </tr> 
+                    
+                <tr> <td class="T1">T1</td> <td class="T1"></td> <td class="T1"></td> <td class="T1"></td> <td class="T1"></td>
+                    <td class="T1"></td> <td class="T1"></td> <td class="T1"></td> <td class="T1"></td> </tr>
+                <tr>
+                    <td class="T2">T2</td>
+                    <td class="T2"></td>
+                    <td class="T2"></td>
+                    <td class="T2"></td>
+                    <td class="T2"></td>
+                    <td class="T2"></td>
+                    <td class="T2"></td>
+                    <td class="T2"></td>
+                    <td class="T2"></td>
+                </tr>
+                <tr> <td class="T3">T3</td> <td class="T3"></td> <td class="T3"></td> <td class="T3"></td> <td class="T3"></td> 
+                     <td class="T3"></td> <td class="T3"></td> <td class="T3"></td> <td class="T3"></td> </tr>
+
+                <tr> <td class="T4">T4</td> <td class="T4"></td> <td class="T4"></td> <td class="T4"></td> <td class="T4"></td> 
+                    <td class="T4"></td> <td class="T4"></td> <td class="T4"></td> <td class="T4"></td> </tr>
+
+                <tr> <td class="T5">T5</td> <td class="T5"></td> <td class="T5"></td> <td class="T5"></td> <td class="T5"></td>
+                    <td class="T5"></td> <td class="T5"></td> <td class="T5"></td> <td class="T5"></td> </tr>
+
+                <tr> <td class="T6">T6</td> <td class="T6"></td> <td class="T6"></td> <td class="T6"></td> <td class="T6"></td>
+                    <td class="T6"></td> <td class="T6"></td> <td class="T6"></td> <td class="T6"></td> </tr>
+            </tbody>
+        </table>
+        <table border="1px" cellspacing='5px' class="Tracing" id="Tracing26">
+            <thead bgcolor="#edf6f9">
+                <tr>
+                    <th colspan="9">Tracing</th>
+                </tr>
+                <tr>
+                    <th>Time cycle</th>
+                    <th>PC</th> <th>AR</th> <th>DR</th> <th>AC</th> <th>IR</th>
+                    <th>M[AR]</th> <th>E</th> <th>SC</th> </tr>
+            </thead>
+            <tbody align="center">
+                <tr> <td class="Initial"><strong>Initial</strong></td> <td class="Initial"></td> <td class="Initial"></td> <td class="Initial"></td> <td class="Initial"></td>
+                    <td class="Initial"></td> <td class="Initial"></td> <td class="Initial"></td> <td class="Initial"></td> </tr>
+                <tr>
+                    <td class="T0"><strong>T0</strong></td> <td class="T0"></td> <td class="T0"></td> <td class="T0"></td> <td class="T0"></td>
+                    <td class="T0"></td> <td class="T0"></td> <td class="T0"></td> <td class="T0"></td> </tr>
+
+                <tr> <td class="T1">T1</td> <td class="T1"></td> <td class="T1"></td> <td class="T1"></td>
+                    <td class="T1"></td> <td class="T1"></td> <td class="T1"></td> <td class="T1"></td> <td class="T1"></td> </tr>
+
+                <tr> <td class="T2">T2</td> <td class="T2"></td> <td class="T2"></td> <td class="T2"></td> <td class="T2"></td>
+                    <td class="T2"></td> <td class="T2"></td> <td class="T2"></td> <td class="T2"></td> </tr>
+
+                <tr> <td class="T3">T3</td> <td class="T3"></td> <td class="T3"></td> <td class="T3"></td>
+                    <td class="T3"></td> <td class="T3"></td> <td class="T3"></td> <td class="T3"></td> <td class="T3"></td> </tr>
+
+                <tr> <td class="T4">T4</td> <td class="T4"></td> <td class="T4"></td> <td class="T4"></td> <td class="T4"></td>
+                    <td class="T4"></td> <td class="T4"></td> <td class="T4"></td> <td class="T4"></td> </tr>
+
+                <tr> <td class="T5">T5</td> <td class="T5"></td> <td class="T5"></td> <td class="T5"></td>
+                    <td class="T5"></td> <td class="T5"></td> <td class="T5"></td> <td class="T5"></td> <td class="T5"></td> </tr>
+
+                <tr> <td class="T6">T6</td> <td class="T6"></td> <td class="T6"></td> <td class="T6"></td> <td class="T6"></td>
+                    <td class="T6"></td> <td class="T6"></td> <td class="T6"></td> <td class="T6"></td> </tr>
+            </tbody>
+        </table>
+        <table border="1px" cellspacing='5px' class="Tracing" id="Tracing27">
+            <thead bgcolor="#edf6f9">
+                <tr> <th colspan="9">Tracing</th> </tr>
+
+                <tr> <th>Time cycle</th>
+                    <th>PC</th> <th>AR</th> <th>DR</th> <th>AC</th>
+                    <th>IR</th> <th>M[AR]</th> <th>E</th> <th>SC</th> </tr>
+            </thead>
+            <tbody align="center">
+
+                <tr> <td class="Initial"><strong>Initial</strong></td> <td class="Initial"></td> <td class="Initial"></td>
+                    <td class="Initial"></td>
+                    <td class="Initial"></td> <td class="Initial"></td> <td class="Initial"></td> <td class="Initial"></td> <td class="Initial"></td> </tr>
+
+                <tr> <td class="T0"><strong>T0</strong></td> <td class="T0"></td> <td class="T0"></td> <td class="T0"></td> <td class="T0"></td>
+                    <td class="T0"></td> <td class="T0"></td> <td class="T0"></td> <td class="T0"></td> </tr>
+
+                <tr> <td class="T1">T1</td> <td class="T1"></td> <td class="T1"></td> <td class="T1"></td>
+                    <td class="T1"></td> <td class="T1"></td> <td class="T1"></td> <td class="T1"></td> <td class="T1"></td> </tr>
+
+                <tr> <td class="T2">T2</td> <td class="T2"></td> <td class="T2"></td> <td class="T2"></td> <td class="T2"></td>
+                    <td class="T2"></td> <td class="T2"></td> <td class="T2"></td> <td class="T2"></td> </tr>
+
+                <tr> <td class="T3">T3</td> <td class="T3"></td> <td class="T3"></td> <td class="T3"></td> <td class="T3"></td>
+                    <td class="T3"></td> <td class="T3"></td> <td class="T3"></td> <td class="T3"></td> </tr>
+
+                <tr> <td class="T4">T4</td> <td class="T4"></td> <td class="T4"></td> <td class="T4"></td> <td class="T4"></td>
+                    <td class="T4"></td> <td class="T4"></td> <td class="T4"></td> <td class="T4"></td> </tr>
+
+                <tr> <td class="T5">T5</td> <td class="T5"></td> <td class="T5"></td> <td class="T5"></td> <td class="T5"></td>
+                    <td class="T5"></td> <td class="T5"></td> <td class="T5"></td> <td class="T5"></td> </tr>
+
+                <tr> <td class="T6">T6</td> <td class="T6"></td> <td class="T6"></td> <td class="T6"></td> <td class="T6"></td>
+                    <td class="T6"></td> <td class="T6"></td> <td class="T6"></td> <td class="T6"></td> </tr>
+            </tbody>
+        </table>
+        <table border="1px" cellspacing='5px' class="Tracing" id="Tracing28">
+            <thead bgcolor="#edf6f9">
+                <tr> <th colspan="9">Tracing</th> </tr>
+
+                <tr> <th>Time cycle</th>
+                    <th>PC</th> <th>AR</th> <th>DR</th> <th>AC</th>
+                    <th>IR</th> <th>M[AR]</th> <th>E</th> <th>SC</th> </tr>
+            </thead>
+            <tbody align="center">
+                <tr> <td class="Initial"><strong>Initial</strong></td> <td class="Initial"></td> <td class="Initial"></td> <td class="Initial"></td> <td class="Initial"></td>
+                    <td class="Initial"></td> <td class="Initial"></td> <td class="Initial"></td> <td class="Initial"></td> </tr>
+
+                <tr> <td class="T0"><strong>T0</strong></td> <td class="T0"></td> <td class="T0"></td> <td class="T0"></td> <td class="T0"></td>
+                    <td class="T0"></td> <td class="T0"></td> <td class="T0"></td> <td class="T0"></td> </tr>
+
+                <tr> <td class="T1">T1</td> <td class="T1"></td> <td class="T1"></td> <td class="T1"></td> <td class="T1"></td>
+                    <td class="T1"></td> <td class="T1"></td> <td class="T1"></td> <td class="T1"></td> </tr>
+
+                <tr> <td class="T2">T2</td> <td class="T2"></td> <td class="T2"></td> <td class="T2"></td> <td class="T2"></td>
+                    <td class="T2"></td> <td class="T2"></td> <td class="T2"></td> <td class="T2"></td> </tr>
+
+                <tr> <td class="T3">T3</td> <td class="T3"></td> <td class="T3"></td> <td class="T3"></td> <td class="T3"></td>
+                    <td class="T3"></td> <td class="T3"></td> <td class="T3"></td> <td class="T3"></td> </tr>
+
+                <tr> <td class="T4">T4</td> <td class="T4"></td> <td class="T4"></td> <td class="T4"></td> <td class="T4"></td>
+                    <td class="T4"></td> <td class="T4"></td> <td class="T4"></td> <td class="T4"></td> </tr>
+
+                <tr> <td class="T5">T5</td> <td class="T5"></td> <td class="T5"></td> <td class="T5"></td> <td class="T5"></td>
+                    <td class="T5"></td> <td class="T5"></td> <td class="T5"></td> <td class="T5"></td> </tr>
+
+                <tr> <td class="T6">T6</td> <td class="T6"></td> <td class="T6"></td> <td class="T6"></td> <td class="T6"></td>
+                    <td class="T6"></td> <td class="T6"></td> <td class="T6"></td> <td class="T6"></td> </tr>
+            </tbody>
+        </table>
+
+        </div>
+    </div>
+
+    <script src="Memory-Registers.js"></script> <script src="analysisFunctions.js"></script><script src="trace.js"></script>
+    <script src="tracingCode.js"></script> <script src="analysis.js"></script>
+ </body>
+</html>
